@@ -1,5 +1,6 @@
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import { injectable, inject } from 'tsyringe';
 import authConfig from '@config/auth';
 
 import AppError from '@shared/errors/AppError';
@@ -17,10 +18,11 @@ interface IResponse {
   token: string;
 }
 
+@injectable()
 class AuthUserService {
   private usersRepository: IUsersRepository;
 
-  constructor(usersRepository: IUsersRepository) {
+  constructor(@inject('UsersRepository') usersRepository: IUsersRepository) {
     this.usersRepository = usersRepository;
   }
 
