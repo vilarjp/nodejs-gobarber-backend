@@ -1,6 +1,7 @@
 node_modules/
 build/
-tmp/uploads/*
+tmp/*
+!tmp/uploads
 !tmp/.gitkeep
 !tmp/uploads/.gitkeep
 coverage
